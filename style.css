@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #101010;
+    transition: background-color 0.5s ease;
+  }
+  
+  body.on {
+    background-color: #1c1c1c;
+  }
+  
+  .light {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wire {
+    width: 2px;
+    height: 200px;
+    background-color: #444;
+  }
+  
+  .bulb {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  .bulb::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 80px;
+    background-color: #333;
+    border-radius: 20px;
+    border-top: 10px solid #000;
+  }
+  
+  body.on .bulb {
+    background-color: #ffffff;
+    box-shadow: 0 0 50px #ffffff, 0 0 100px #ffffff, 0 0 150px #ffffff;
+  }
+  
+  body.on .bulb::before {
+    background-color: #ffffff;
+  }
+  
+  body.on .bulb::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 224, 0.6), rgba(255, 223, 0, 0.1));
+    border-radius: 50%;
+    filter: blur(30px);
+    z-index: -1;
+  }
+  
+  .switch {
+    margin-top: 30px;
+    width: 80px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .switch .btn {
+    width: 40px;
+    height: 40px;
+    background-color: #777;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    transition: left 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  body.on .switch .btn {
+    left: calc(100% - 45px);
+    background-color: #ffd700;
+  }
+  
+  audio {
+    display: none;
+  }
+  
+
